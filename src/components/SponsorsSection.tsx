@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { SPONSORS_DATA } from "../data/festivalData";
 import { soundFx } from "../utils/audio";
 import { ShieldCheck, Cpu, Server, Wrench, Zap, Flame, Globe, Shield, Radio } from "lucide-react";
 
 export const SponsorsSection: React.FC = () => {
+  const [selectedSponsorIndex, setSelectedSponsorIndex] = useState<number | null>(null);
+
   const getIcon = (iconName: string) => {
     switch (iconName) {
       case "Cpu": return Cpu;
@@ -44,10 +46,20 @@ export const SponsorsSection: React.FC = () => {
           {SPONSORS_DATA.map((sponsor, index) => {
             const Icon = getIcon(sponsor.iconName);
             return (
-              <div
+              <button
                 key={index}
+                type="button"
                 onMouseEnter={() => soundFx.playHover()}
-                className="group relative p-6 sm:p-8 bg-[#171717] rounded-sm border border-white/5 hover:border-sunset/50 transition-all duration-300 flex flex-col items-center text-center justify-between hover:shadow-[0_10px_30px_rgba(255,100,46,0.1)] clip-diagonal-card"
+                onClick={() => {
+                  soundFx.playClick();
+                  setSelectedSponsorIndex(index);
+                }}
+                aria-pressed={selectedSponsorIndex === index}
+                className={`group relative w-full appearance-none p-6 sm:p-8 bg-[#171717] rounded-sm border border-white/5 hover:border-sunset/50 transition-all duration-300 flex flex-col items-center text-center justify-between hover:shadow-[0_10px_30px_rgba(255,100,46,0.1)] clip-diagonal-card ${
+                  selectedSponsorIndex === index
+                    ? "-translate-y-2 scale-[1.04] z-10 border-sunset shadow-[0_16px_32px_rgba(255,100,46,0.2)]"
+                    : ""
+                }`}
               >
                 {/* Tier Badge */}
                 <span className="font-mono text-[9px] sm:text-[10px] tracking-widest uppercase text-silver-500 group-hover:text-sunset transition-colors mb-4">
@@ -68,7 +80,7 @@ export const SponsorsSection: React.FC = () => {
                     {sponsor.domain}
                   </p>
                 </div>
-              </div>
+              </button>
             );
           })}
         </div>

@@ -60,7 +60,7 @@ export const ScheduleSection: React.FC = () => {
               }}
               className={`p-5 text-left rounded-sm border transition-all duration-300 flex flex-col justify-between clip-diagonal-card ${
                 selectedDay === item.day
-                  ? "bg-[#1f2229] border-sunset text-white shadow-[0_0_20px_rgba(255,100,46,0.2)]"
+                  ? "-translate-y-2 scale-[1.03] z-10 bg-[#1f2229] border-sunset text-white shadow-[0_0_28px_rgba(255,100,46,0.5)]"
                   : "bg-[#171717] border-white/5 text-silver-400 hover:text-white hover:border-white/20"
               }`}
             >
