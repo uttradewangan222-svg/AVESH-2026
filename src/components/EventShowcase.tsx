@@ -11,7 +11,6 @@ interface EventShowcaseProps {
 
 export const EventShowcase: React.FC<EventShowcaseProps> = ({ onSelectEvent, onRegisterEvent }) => {
   const [activeCategory, setActiveCategory] = useState<EventCategory>("all");
-  const [selectedEventId, setSelectedEventId] = useState<string | null>(null);
 
   const categories: { key: EventCategory; label: string }[] = [
     { key: "all", label: "ALL EVENTS" },
@@ -28,12 +27,6 @@ export const EventShowcase: React.FC<EventShowcaseProps> = ({ onSelectEvent, onR
 
   return (
     <section id="events" className="relative py-24 sm:py-32 bg-[#0d0e11] border-t border-white/5">
-      <div
-        className="absolute inset-0 bg-cover bg-center opacity-30 pointer-events-none"
-        style={{ backgroundImage: "url('/assets/gec10.jpeg')" }}
-      />
-      <div className="absolute inset-x-0 top-0 h-1/3 bg-gradient-to-b from-[#0e1014] to-transparent pointer-events-none" />
-      <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-b from-transparent to-[#0e1014] pointer-events-none" />
       <div className="absolute inset-0 bg-grain opacity-25 pointer-events-none" />
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -51,7 +44,7 @@ export const EventShowcase: React.FC<EventShowcaseProps> = ({ onSelectEvent, onR
               FEATURED <span className="text-sunset">COMPETITIONS</span>.
             </h2>
             <p className="font-sans text-sm sm:text-base text-silver-400 mt-2 max-w-xl">
-              24+ high-stakes engineering battles, 36-hour hackathons, combat robotics, and cultural stages. Choose your battlefield.
+              8 Technical Competitions (Hackathon, Ideathon, Robotics, Structures & Gaming), 4 Cultural Stage Competitions, and 1 Grand Artist Night.
             </p>
           </div>
 
@@ -92,8 +85,6 @@ export const EventShowcase: React.FC<EventShowcaseProps> = ({ onSelectEvent, onR
             <div
               key={event.id}
               className={`group relative bg-[#171717] rounded-sm border transition-all duration-300 flex flex-col justify-between overflow-hidden clip-diagonal-card hover:shadow-[0_15px_40px_rgba(0,0,0,0.6)] ${
-                selectedEventId === event.id ? "-translate-y-2 scale-[1.03] z-10 shadow-[0_20px_45px_rgba(255,100,46,0.2)]" : ""
-              } ${
                 event.featured 
                   ? "border-sunset/40 hover:border-sunset" 
                   : "border-white/10 hover:border-white/30"
@@ -172,7 +163,6 @@ export const EventShowcase: React.FC<EventShowcaseProps> = ({ onSelectEvent, onR
                 <button
                   onClick={() => {
                     soundFx.playClick();
-                    setSelectedEventId(event.id);
                     onSelectEvent(event);
                   }}
                   className="flex-1 py-2.5 px-3 rounded-sm bg-white/5 hover:bg-white/10 text-silver-300 hover:text-white border border-white/10 font-mono text-xs tracking-wider transition-all flex items-center justify-center gap-1.5"
@@ -184,7 +174,6 @@ export const EventShowcase: React.FC<EventShowcaseProps> = ({ onSelectEvent, onR
                 <button
                   onClick={() => {
                     soundFx.playClick();
-                    setSelectedEventId(event.id);
                     onRegisterEvent(event);
                   }}
                   className="py-2.5 px-4 rounded-sm bg-sunset hover:bg-sunset-hover text-white font-mono text-xs font-bold tracking-wider clip-diagonal-btn transition-all flex items-center justify-center gap-1 shadow-md hover:shadow-sunset/40"

@@ -4,24 +4,43 @@ import { soundFx } from "../utils/audio";
 import { Calendar, Clock, MapPin, User, ChevronRight } from "lucide-react";
 
 export const ScheduleSection: React.FC = () => {
-  const [selectedDay, setSelectedDay] = useState<1 | 2 | 3>(1);
+  const [selectedDay, setSelectedDay] = useState<1 | 2 | 3 | 4>(1);
 
   const daysInfo = [
-    { day: 1 as const, label: "DAY 01", date: "OCTOBER 28, 2026", theme: "Inauguration, Hackathon Kickoff & Robo Qualifiers" },
-    { day: 2 as const, label: "DAY 02", date: "OCTOBER 29, 2026", theme: "Combat Robo-Wars, Code Red & Dance Crew Showdown" },
-    { day: 3 as const, label: "DAY 03", date: "OCTOBER 30, 2026", theme: "Hackathon Juries, Tech Summits & Grand Celebrity Concert" },
+    { 
+      day: 1 as const, 
+      label: "DAY 01 · 27 OCT", 
+      date: "TUESDAY · 10 AM – 4 PM", 
+      title: "Technical Day 1",
+      theme: "Hack4Community Sprint, PromptMe, Quiz & Robo Soccer" 
+    },
+    { 
+      day: 2 as const, 
+      label: "DAY 02 · 28 OCT", 
+      date: "WEDNESDAY · 10 AM – 4 PM", 
+      title: "Technical Day 2",
+      theme: "Founder's Forge, Truss-Craft, E-Sports & Robo Sumo" 
+    },
+    { 
+      day: 3 as const, 
+      label: "DAY 03 · 29 OCT", 
+      date: "THURSDAY · 3 PM – 8 PM", 
+      title: "Cultural Day",
+      theme: "Solo & Group Singing, Solo & Group Dance Competitions" 
+    },
+    { 
+      day: 4 as const, 
+      label: "DAY 04 · 30 OCT", 
+      date: "FRIDAY · 5 PM ONWARDS", 
+      title: "Grand Artist Night",
+      theme: "Auditorium Highlights, Live Celebrity Artist Show & DJ Night" 
+    },
   ];
 
   const currentDayEvents = SCHEDULE_DATA.filter((s) => s.day === selectedDay);
 
   return (
-    <section id="schedule" className="relative py-24 sm:py-32 bg-[#0d0e11] border-t border-white/5 overflow-hidden">
-      <div
-        aria-hidden="true"
-        className="absolute inset-0 bg-cover bg-center opacity-15 pointer-events-none"
-        style={{ backgroundImage: "url('/assets/gec10.jpeg')" }}
-      />
-      <div className="absolute inset-0 bg-gradient-to-b from-[#0d0e11]/85 via-[#0d0e11]/90 to-[#0d0e11]/85 pointer-events-none" />
+    <section id="schedule" className="relative py-24 sm:py-32 bg-[#0d0e11] border-t border-white/5">
       <div className="absolute inset-0 bg-grain opacity-25 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -39,7 +58,7 @@ export const ScheduleSection: React.FC = () => {
               EVENT <span className="text-sunset">SCHEDULE</span>.
             </h2>
             <p className="font-sans text-sm sm:text-base text-silver-400 mt-2 max-w-xl">
-              Three continuous days of non-stop innovation, competitive engineering, and sunset celebrations at CGIT Raipur.
+              Four continuous days (27/10/26 – 30/10/26) of non-stop innovation, competitive engineering, and celebrations at CGIT Raipur.
             </p>
           </div>
 
@@ -56,7 +75,7 @@ export const ScheduleSection: React.FC = () => {
         </div>
 
         {/* Day Selector Tabs */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
           {daysInfo.map((item) => (
             <button
               key={item.day}
@@ -66,7 +85,7 @@ export const ScheduleSection: React.FC = () => {
               }}
               className={`p-5 text-left rounded-sm border transition-all duration-300 flex flex-col justify-between clip-diagonal-card ${
                 selectedDay === item.day
-                  ? "-translate-y-2 scale-[1.03] z-10 bg-[#1f2229] border-sunset text-white shadow-[0_0_28px_rgba(255,100,46,0.5)]"
+                  ? "bg-[#1f2229] border-sunset text-white shadow-[0_0_20px_rgba(255,100,46,0.2)]"
                   : "bg-[#171717] border-white/5 text-silver-400 hover:text-white hover:border-white/20"
               }`}
             >

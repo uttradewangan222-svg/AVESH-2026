@@ -9,13 +9,13 @@ export const ExploreExperience: React.FC = () => {
     {
       id: "arena",
       index: "01",
-      title: "THE STEEL ARENA",
-      tagline: "Combat Robotics & Kinetic Warfare",
-      description: "Step into the reinforced perimeter where high-torque spinner discs, hardened titanium wedges, and pneumatic lifters clash under blinding tungsten spotlights. Every spark tells a story of custom gearboxes and driver nerves.",
+      title: "THE ROBOTICS RING",
+      tagline: "Robo Soccer & Sumo Dohyo Battles",
+      description: "Witness high-energy soccer matches with 3kg customized bots fighting for the ball, followed by fierce circular Dohyo Sumo bouts where traction, smart front wedges, and driving precision crown the last bot standing.",
       stats: [
-        { label: "Impact Force", value: "850+ RPM" },
-        { label: "Armor Thickness", value: "6mm Hardox" },
-        { label: "Spectator Capacity", value: "1,200 Seats" }
+        { label: "Match Format", value: "2-Min Halves" },
+        { label: "Max Bot Weight", value: "3 kg Standard" },
+        { label: "Arena Size", value: "300 × 180 cm" }
       ],
       color: "from-[#FF642E] to-[#992600]",
       accent: "text-sunset",
@@ -24,13 +24,13 @@ export const ExploreExperience: React.FC = () => {
     {
       id: "crucible",
       index: "02",
-      title: "THE SYNAPSE CRUCIBLE",
-      tagline: "36 Hours of Relentless Code & Hardware",
-      description: "When the campus clock strikes midnight, 400 developers, ML engineers, and UX architects turn caffeine into production software. Cloud pipelines deployed live before venture juries and senior engineering mentors.",
+      title: "HACK4COMMUNITY",
+      tagline: "8-Hour Innovation & Prototyping Sprint",
+      description: "An intense 8-hour sprint where student teams collaborate, prototype, and present practical solutions for real community well-being, campus experience, accessibility, and public services with working demos.",
       stats: [
-        { label: "Continuous Sprint", value: "36 Hours" },
-        { label: "Prototypes Built", value: "80+ Repos" },
-        { label: "Cloud Credits", value: "$25,000" }
+        { label: "Sprint Duration", value: "8 Hours" },
+        { label: "Required Output", value: "Working Demo" },
+        { label: "Problem Focus", value: "Community Impact" }
       ],
       color: "from-[#FFA843] to-[#FF642E]",
       accent: "text-amber",
@@ -39,13 +39,13 @@ export const ExploreExperience: React.FC = () => {
     {
       id: "nexus",
       index: "03",
-      title: "THE HORIZON NEXUS",
-      tagline: "Patent Demonstrations & Venture Summits",
-      description: "Witness the next wave of indigenous tech created in CGIT Raipur laboratories. From micro-satellite sensor boards to solar-assisted robotics and edge-computing biomedical telemetry.",
+      title: "FOUNDER'S FORGE & PROMPTME",
+      tagline: "5-Hour Ideathon & 3-Hour AI Challenge",
+      description: "Pitch business ideas to industry judges with 1:1 professional mentoring in Founder's Forge, and master AI prompt craft under clock pressure in PromptMe to turn prompts into designs, prototypes, and code.",
       stats: [
-        { label: "Patents Displayed", value: "18 Prototypes" },
-        { label: "Industry CTOs", value: "12 Keynotes" },
-        { label: "Venture Grants", value: "₹5,00,000+" }
+        { label: "Ideathon Sprint", value: "5 Hours" },
+        { label: "Prompt Challenge", value: "2h Build + 1h Demo" },
+        { label: "Judge Mentoring", value: "1:1 Live Feedback" }
       ],
       color: "from-[#FF8C66] to-[#FFA843]",
       accent: "text-coral",
@@ -54,13 +54,13 @@ export const ExploreExperience: React.FC = () => {
     {
       id: "celebration",
       index: "04",
-      title: "THE SUNSET CELEBRATION",
-      tagline: "Live Rock, EDM Symphony & Cultural Grandeur",
-      description: "As dusk washes the Raipur skyline in vermilion and amber, the central amphitheater erupts into thunderous double-kick drums, soaring vocal harmonies, and synchronized dance crew battles.",
+      title: "CULTURAL DAY & ARTIST NIGHT",
+      tagline: "Singing, Dance & Live Celebrity Headliner",
+      description: "October 29 opens the stage for Solo/Group Singing and Dance crew choreography, leading straight into October 30's Grand Artist Night featuring auditorium highlights, an opening act, and a closing DJ dance floor.",
       stats: [
-        { label: "Concert PA", value: "45,000 Watts" },
-        { label: "Live Bands", value: "14 Ensembles" },
-        { label: "Night Attendance", value: "3,500+ Strong" }
+        { label: "Stage Events", value: "4 Competitions" },
+        { label: "Cultural Timing", value: "29 Oct · 3–8 PM" },
+        { label: "Artist Night", value: "30 Oct · 5 PM+" }
       ],
       color: "from-[#FF642E] to-[#FF8C66]",
       accent: "text-sunset",
@@ -72,12 +72,6 @@ export const ExploreExperience: React.FC = () => {
 
   return (
     <section id="explore" className="relative py-24 sm:py-32 bg-[#0e1014] border-t border-white/5 overflow-hidden">
-      <div
-        aria-hidden="true"
-        className="absolute inset-0 bg-cover bg-center opacity-20 pointer-events-none"
-        style={{ backgroundImage: "url('/assets/city-sunset.jpg')" }}
-      />
-      <div className="absolute inset-0 bg-gradient-to-b from-[#0e1014]/80 via-[#0e1014]/90 to-[#0e1014]/85 pointer-events-none" />
       <div className="absolute inset-0 bg-grain opacity-25 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -110,7 +104,7 @@ export const ExploreExperience: React.FC = () => {
                 }}
                 className={`px-4 py-3 text-left rounded-sm border transition-all duration-300 ${
                   activeStep === idx
-                    ? "-translate-y-2 scale-[1.04] z-10 bg-white/10 border-sunset text-white shadow-[0_16px_32px_rgba(255,100,46,0.2)]"
+                    ? "bg-white/10 border-sunset text-white shadow-lg"
                     : "bg-[#171717] border-white/5 text-silver-400 hover:text-white hover:border-white/20"
                 }`}
               >
