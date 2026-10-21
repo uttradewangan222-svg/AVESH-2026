@@ -72,6 +72,12 @@ export const ExploreExperience: React.FC = () => {
 
   return (
     <section id="explore" className="relative py-24 sm:py-32 bg-[#0e1014] border-t border-white/5 overflow-hidden">
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 bg-cover bg-center opacity-20 pointer-events-none"
+        style={{ backgroundImage: "url('/assets/city-sunset.jpg')" }}
+      />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#0e1014]/80 via-[#0e1014]/90 to-[#0e1014]/85 pointer-events-none" />
       <div className="absolute inset-0 bg-grain opacity-25 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
